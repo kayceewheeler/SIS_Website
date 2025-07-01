@@ -4,6 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let countersTriggered = false;
     let serviceCountersTriggered = false;
     
+    // Performance optimization: Throttle function (defined early to avoid reference errors)
+    let ticking = false;
+    function throttle(func, delay = 100) {
+        return function(...args) {
+            if (!ticking) {
+                func.apply(this, args);
+                ticking = true;
+                setTimeout(() => ticking = false, delay);
+            }
+        };
+    }
+    
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
@@ -425,15 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Performance optimization: Throttle scroll events
-    let ticking = false;
-    function throttle(func) {
-        if (!ticking) {
-            requestAnimationFrame(func);
-            ticking = true;
-            setTimeout(() => ticking = false, 16); // ~60fps
-        }
-    }
+
 
     // Enhanced scroll handling
     window.addEventListener('scroll', () => {
