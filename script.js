@@ -86,6 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const counters = document.querySelectorAll('.stat-number[data-target]');
         
         counters.forEach(counter => {
+            // Skip if already animated (prevent multiple animations)
+            if (counter.textContent !== '0') {
+                return;
+            }
+            
             const target = parseInt(counter.getAttribute('data-target'));
             const duration = 2000; // 2 seconds
             const steps = 60;
@@ -114,6 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const serviceCounters = document.querySelectorAll('.service-stat-number[data-target]');
         
         serviceCounters.forEach((counter, index) => {
+            // Skip if already animated (prevent multiple animations)
+            if (counter.textContent !== '0') {
+                return;
+            }
+            
             const target = parseInt(counter.getAttribute('data-target'));
             const duration = 1500; // 1.5 seconds for faster animation
             const steps = 50;
@@ -155,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Trigger counter animation when stats section is visible
                 if (entry.target.classList.contains('stats')) {
+                    countersTriggered = true; // Mark as triggered to prevent fallback
                     // Add a small delay to ensure proper timing on mobile
                     setTimeout(() => {
                         animateCounters();
@@ -163,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add staggered animation for service cards and trigger service counters
                 if (entry.target.classList.contains('services-grid')) {
+                    serviceCountersTriggered = true; // Mark as triggered to prevent fallback
                     const cards = entry.target.querySelectorAll('.service-card');
                     cards.forEach((card, index) => {
                         setTimeout(() => {
@@ -198,7 +210,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fallback for mobile devices - trigger counters on scroll if not already triggered
     let countersTriggered = false;
+    let serviceCountersTriggered = false;
+    
     function checkCountersOnScroll() {
+        // Check main stats section
         if (!countersTriggered) {
             const statsSection = document.querySelector('.stats');
             if (statsSection) {
@@ -209,6 +224,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (rect.top < windowHeight && rect.bottom > 0) {
                     countersTriggered = true;
                     animateCounters();
+                }
+            }
+        }
+        
+        // Check service section separately
+        if (!serviceCountersTriggered) {
+            const servicesSection = document.querySelector('.services-grid');
+            if (servicesSection) {
+                const rect = servicesSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Trigger if section is visible or has been scrolled past
+                if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                    serviceCountersTriggered = true;
                     animateServiceCounters();
                 }
             }
@@ -223,6 +252,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!countersTriggered) {
             countersTriggered = true;
             animateCounters();
+        }
+        if (!serviceCountersTriggered) {
+            serviceCountersTriggered = true;
             animateServiceCounters();
         }
     }, 3000); // Wait 3 seconds after page load
