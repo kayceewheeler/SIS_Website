@@ -1,5 +1,9 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Counter tracking variables (declared at top for proper scope)
+    let countersTriggered = false;
+    let serviceCountersTriggered = false;
+    
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
@@ -51,35 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Header scroll effect
-    let lastScrollTop = 0;
-    const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Add background blur when scrolled
-        if (scrollTop > 100) {
-            header.style.background = 'rgba(30, 58, 138, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
-        } else {
-            header.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
-            header.style.backdropFilter = 'none';
-            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-        }
 
-        // Hide/show header on scroll (optional - uncomment if desired)
-        /*
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        */
-        
-        lastScrollTop = scrollTop;
-    });
 
     // Animated counters
     function animateCounters() {
@@ -209,9 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Fallback for mobile devices - trigger counters on scroll if not already triggered
-    let countersTriggered = false;
-    let serviceCountersTriggered = false;
-    
     function checkCountersOnScroll() {
         // Check main stats section
         if (!countersTriggered) {
