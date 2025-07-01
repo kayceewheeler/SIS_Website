@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superior Integrity Services - Professional NDE & Pipeline Inspection</title>
+    <meta name="description" content="Leading provider of professional NDE and pipeline inspection services, ensuring the highest standards of safety and reliability for critical infrastructure.">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles.css?v=2024">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar" id="topBar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <a href="mailto:info@superiorintegrityservices.com" class="top-bar-link">
+                    <i class="fas fa-envelope"></i>
+                    info@superiorintegrityservices.com
+                </a>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/superior-integrity-services/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="mainHeader" style="background: white !important; background-color: white !important;">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home" class="logo-link">
+                    <img src="images/sis.jpg" alt="Superior Integrity Services Logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Superior Integrity Services</h1>
+            <p class="fade-in fade-in-delay-1">Leading provider of professional NDE and pipeline inspection services, ensuring the highest standards of safety and reliability for critical infrastructure.</p>
+            <div class="cta-buttons fade-in fade-in-delay-2">
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item scale-in">
+                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item scale-in fade-in-delay-1">
+                <span class="stat-number" data-target="1000">0</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item scale-in fade-in-delay-2">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Emergency Service</span>
+            </div>
+            <div class="stat-item scale-in fade-in-delay-3">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">Safety Record</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Our Services</h2>
+                <p class="section-subtitle fade-in fade-in-delay-1">Comprehensive NDE and pipeline inspection services using cutting-edge technology and certified professionals</p>
+            </div>
+            <div class="services-grid">
+                <!-- Conventional NDE -->
+                <div class="service-card main-service slide-in-left" data-service="conventional">
+                    <div class="service-stats">
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="4">0</span>
+                            <span class="service-stat-label">NDE Methods</span>
+                        </div>
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="500">0</span>
+                            <span class="service-stat-label">Projects</span>
+                        </div>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/rt.avif" alt="Conventional NDE Services" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Conventional NDE</h3>
+                        <p class="service-description">Comprehensive non-destructive evaluation using proven conventional testing methods</p>
+                        
+                        <div class="sub-services">
+                            <div class="sub-service-item" data-image="rt">
+                                <img src="images/rt.avif" alt="Radiography Testing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Radiography Testing (RT)</h4>
+                                    <p>Conventional, Computed, and Digital Radiography</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="mt">
+                                <img src="images/mt.avif" alt="Magnetic Particle Testing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Magnetic Particle Testing (MT)</h4>
+                                    <p>Dry, Wet Visible, and Wet Fluorescent Methods</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="pt">
+                                <img src="images/pt.avif" alt="Penetrant Testing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Penetrant Testing (PT)</h4>
+                                    <p>Visible and Fluorescent Penetrant Testing</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="vt">
+                                <img src="images/vt.avif" alt="Visual Testing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Visual Testing (VT)</h4>
+                                    <p>Structural, In-service, and New Construction</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="service-cta-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Pipeline Integrity -->
+                <div class="service-card main-service fade-in fade-in-delay-1" data-service="pipeline">
+                    <div class="service-stats">
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="4">0</span>
+                            <span class="service-stat-label">Techniques</span>
+                        </div>
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="300">0</span>
+                            <span class="service-stat-label">Assessments</span>
+                        </div>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/da.avif" alt="Pipeline Integrity Services" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Pipeline Integrity</h3>
+                        <p class="service-description">Advanced pipeline assessment and corrosion detection services</p>
+                        
+                        <div class="sub-services">
+                            <div class="sub-service-item" data-image="da">
+                                <img src="images/da.avif" alt="Direct Assessment" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Direct Assessment (DA)</h4>
+                                    <p>PMI, Soil Testing, Internal & External Corrosion</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="ec">
+                                <img src="images/ec.avif" alt="External Corrosion" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>External Corrosion (EC)</h4>
+                                    <p>3D Laser Scanning and Surface ET</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="ic">
+                                <img src="images/ic.avif" alt="Internal Corrosion" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Internal Corrosion (IC)</h4>
+                                    <p>Corrosion Scan and PAUT Mapping</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="scc">
+                                <img src="images/scc.avif" alt="Stress Corrosion Cracking" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Stress Corrosion Cracking (SCC)</h4>
+                                    <p>Verification and Sizing</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="service-cta-btn">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- High Capacity Pipeline Inspection -->
+                <div class="service-card main-service slide-in-right" data-service="highcapacity">
+                    <div class="service-stats">
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="4">0</span>
+                            <span class="service-stat-label">Technologies</span>
+                        </div>
+                        <div class="service-stat-item">
+                            <span class="service-stat-number" data-target="200">0</span>
+                            <span class="service-stat-label">Inspections</span>
+                        </div>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/crawler.avif" alt="High Capacity Pipeline Inspection" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">High Capacity Pipeline Inspection</h3>
+                        <p class="service-description">Advanced automated inspection technologies for large-scale projects</p>
+                        
+                        <div class="sub-services">
+                            <div class="sub-service-item" data-image="rtr">
+                                <img src="images/rtr.avif" alt="Real Time Radiography" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Real Time Radiography (RTR)</h4>
+                                    <p>Real Time Radiography with Cloud Sharing</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="aut">
+                                <img src="images/aut.avif" alt="Automated Ultrasonic Testing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Automated Ultrasonic Testing (AUT)</h4>
+                                    <p>Zonal AUT and Advanced UT Techniques</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="crawler">
+                                <img src="images/crawler.avif" alt="X-Ray Crawlers" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>X-Ray Crawlers</h4>
+                                    <p>High Capacity Film Inspections</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sub-service-item" data-image="l3">
+                                <img src="images/l3.avif" alt="Level III Auditing" class="sub-service-icon">
+                                <div class="sub-service-info">
+                                    <h4>Level III Auditing</h4>
+                                    <p>Onsite and Remote Level III Services</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="service-cta-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="map-section">
+                <h3>Find Us on the Map</h3>
+                <div class="map-container">
+                    <div id="leafletMap" style="height: 450px; width: 100%; border-radius: 8px;"></div>
+                    <div class="map-overlay">
+                        <div class="map-overlay-content">
+                            <h4>Our Service Area</h4>
+                            <p>Click on a location to view on map</p>
+                            <div class="location-pins">
+                                <div class="pin-item interactive-pin" data-location="houston">
+                                    📍 Houston, TX
+                                    <div class="pin-info">
+                                        <div class="pin-address">633 Rankin Circle N, Houston, TX 77073</div>
+                                        <div class="pin-phone">(832) 900-4768</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="fortworth">
+                                    📍 Fort Worth, TX
+                                    <div class="pin-info">
+                                        <div class="pin-address">4851 Blue Mound Rd, Fort Worth, TX 76106</div>
+                                        <div class="pin-phone">(682) 708-6375</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="midland">
+                                    📍 Midland, TX
+                                    <div class="pin-info">
+                                        <div class="pin-address">11426 W County Rd 33, Midland, TX 79707</div>
+                                        <div class="pin-phone">(432) 363-0669</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="perryton">
+                                    📍 Perryton, TX
+                                    <div class="pin-info">
+                                        <div class="pin-address">14488 Northwest Loop 143, Perryton, TX 79070</div>
+                                        <div class="pin-phone">(806) 435-4043</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="ingleside">
+                                    📍 Ingleside, TX
+                                    <div class="pin-info">
+                                        <div class="pin-address">2701 Main Street, Ingleside, TX 78362</div>
+                                        <div class="pin-phone">(361) 345-4017</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="carlsbad">
+                                    📍 Carlsbad, NM
+                                    <div class="pin-info">
+                                        <div class="pin-address">1500 Industrial Dr, Carlsbad, NM 88220</div>
+                                        <div class="pin-phone">(575) 234-2198</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="henryetta">
+                                    📍 Henryetta, OK
+                                    <div class="pin-info">
+                                        <div class="pin-address">69803 Hornbeam Rd, Henryetta, OK 74478</div>
+                                        <div class="pin-phone">(918) 650-0018</div>
+                                    </div>
+                                </div>
+                                <div class="pin-item interactive-pin" data-location="watford">
+                                    📍 Watford City, ND
+                                    <div class="pin-info">
+                                        <div class="pin-address">1509 21st Ave NW, Watford City, ND 58854</div>
+                                        <div class="pin-phone">(701) 672-1589</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-reset">
+                                <button class="reset-map-btn" onclick="resetMapView()">
+                                    <i class="fas fa-expand-arrows-alt"></i> View All Locations
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="map-note">Our strategically located offices ensure rapid response times and local expertise for all your NDE and pipeline inspection needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Trusted Expertise in NDE Services</h2>
+                    <p>Superior Integrity Services is committed to providing the highest quality and professional NDE and inspection services to our customers. With years of experience in the industry, we've built a reputation for excellence and reliability.</p>
+                    <p>Our team of certified professionals uses state-of-the-art equipment and follows strict safety protocols to ensure accurate results and maintain the integrity of critical infrastructure systems.</p>
+                    <p>From conventional NDE techniques to advanced pipeline inspection services, we deliver comprehensive solutions that meet the demanding requirements of modern industrial applications.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <h4>Certified Professionals</h4>
+                            <p>Our team holds industry certifications and maintains continuous training</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Advanced Equipment</h4>
+                            <p>State-of-the-art testing equipment for accurate and reliable results</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Safety First</h4>
+                            <p>Strict safety protocols and procedures for every project</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/vt.avif" alt="Professional NDE Inspector at Work" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us today for professional NDE and pipeline inspection services</p>
+            <a href="tel:+18329004768" class="btn btn-primary">Call Now</a>
+            <div class="contact-info">
+                <a href="tel:+18329004768" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12C22 13.11 21.11 14 20 14H13L11 16L9 14H4C2.9 14 2 13.11 2 12V6C2 4.89 2.9 4 4 4H20C21.11 4 22 4.89 22 6V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span>Call Us</span>
+                    <span>(832) 900-4768</span>
+                </a>
+                <a href="mailto:info@superiorintegrityservices.com" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span>Email Us</span>
+                    <span>info@superiorintegrityservices.com</span>
+                </a>
+                <a href="#locations" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span>Visit Us</span>
+                    <span>Multiple Locations</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="#home" class="footer-logo-link">
+                            <img src="images/sis.jpg" alt="Superior Integrity Services Logo" class="footer-logo-image">
+                        </a>
+                    </div>
+                    <p>Professional NDE & Pipeline Inspection Services Ensuring safety and reliability for critical infrastructure across the US.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Conventional NDE</a></li>
+                        <li><a href="#services">Pipeline Integrity</a></li>
+                        <li><a href="#services">High Capacity Inspection</a></li>
+                        <li><a href="#services">Corrosion Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>(832) 900-4768</li>
+                        <li>info@superiorintegrityservices.com</li>
+                        <li>24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Superior Integrity Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
