@@ -93,12 +93,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animated service counters
     function animateServiceCounters() {
         const serviceCounters = document.querySelectorAll('.service-stat-number[data-target]');
+        console.log(`Found ${serviceCounters.length} service counters to animate`);
         
         serviceCounters.forEach((counter, index) => {
+            console.log(`Counter ${index}: current text = "${counter.textContent}", target = "${counter.getAttribute('data-target')}"`);
+            
             // Skip if already animated (prevent multiple animations)
-            if (counter.textContent !== '0') {
+            // Check if it's already been animated by looking for '+' or numbers > 0
+            const currentText = counter.textContent.trim();
+            if (currentText.includes('+') || (parseInt(currentText) > 0 && parseInt(currentText) >= parseInt(counter.getAttribute('data-target')))) {
+                console.log(`Skipping counter ${index} - already animated (text: "${currentText}")`);
                 return;
             }
+            
+            console.log(`Starting animation for counter ${index}`);
+            // Reset to 0 to ensure clean start
+            counter.textContent = '0';
             
             const target = parseInt(counter.getAttribute('data-target'));
             const duration = 1500; // 1.5 seconds for faster animation
@@ -220,13 +230,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scroll listener for mobile fallback
     window.addEventListener('scroll', throttle(checkCountersOnScroll, 100));
 
+    // Mobile device detection
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               (navigator.maxTouchPoints && navigator.maxTouchPoints > 2) ||
+               window.innerWidth <= 768;
+    }
+
+    // Aggressive mobile fallback - immediately trigger counters on mobile
+    if (isMobileDevice()) {
+        console.log('Mobile device detected - triggering counters immediately');
+        setTimeout(() => {
+            if (!countersTriggered) {
+                console.log('Triggering main counters on mobile');
+                countersTriggered = true;
+                animateCounters();
+            }
+            if (!serviceCountersTriggered) {
+                console.log('Triggering service counters on mobile');
+                serviceCountersTriggered = true;
+                animateServiceCounters();
+            }
+        }, 1000); // Shorter delay for mobile
+    }
+
     // Final fallback - trigger counters after page load if not already triggered
     setTimeout(() => {
         if (!countersTriggered) {
+            console.log('Final fallback: triggering main counters');
             countersTriggered = true;
             animateCounters();
         }
         if (!serviceCountersTriggered) {
+            console.log('Final fallback: triggering service counters');
             serviceCountersTriggered = true;
             animateServiceCounters();
         }
