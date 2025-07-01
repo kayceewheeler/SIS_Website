@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Intersection Observer for animations
     const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: [0.1, 0.3, 0.5], // Multiple thresholds for better mobile compatibility
+        rootMargin: '0px 0px -20px 0px' // Reduced margin for mobile screens
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -155,7 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Trigger counter animation when stats section is visible
                 if (entry.target.classList.contains('stats')) {
-                    animateCounters();
+                    // Add a small delay to ensure proper timing on mobile
+                    setTimeout(() => {
+                        animateCounters();
+                    }, 100);
                 }
                 
                 // Add staggered animation for service cards and trigger service counters
@@ -192,6 +195,37 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.stats, .services-grid, .about-content, .locations-grid').forEach(section => {
         observer.observe(section);
     });
+
+    // Fallback for mobile devices - trigger counters on scroll if not already triggered
+    let countersTriggered = false;
+    function checkCountersOnScroll() {
+        if (!countersTriggered) {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                const rect = statsSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Trigger if section is visible or has been scrolled past
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    countersTriggered = true;
+                    animateCounters();
+                    animateServiceCounters();
+                }
+            }
+        }
+    }
+    
+    // Add scroll listener for mobile fallback
+    window.addEventListener('scroll', throttle(checkCountersOnScroll, 100));
+
+    // Final fallback - trigger counters after page load if not already triggered
+    setTimeout(() => {
+        if (!countersTriggered) {
+            countersTriggered = true;
+            animateCounters();
+            animateServiceCounters();
+        }
+    }, 3000); // Wait 3 seconds after page load
 
     // Initialize service cards with animation-ready state
     document.querySelectorAll('.service-card').forEach(card => {
